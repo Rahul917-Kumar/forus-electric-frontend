@@ -1,5 +1,5 @@
 # Blog Dashboard
-> Deployed URL: https://forusblog.netlify.app/login
+> Deployed URL: https://forusblog.netlify.app
 
 <img width="1848" height="970" alt="image" src="https://github.com/user-attachments/assets/0a42ddef-3c67-4057-9be2-6ef16d4ecb97" />
 
