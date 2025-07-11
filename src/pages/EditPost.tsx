@@ -28,7 +28,6 @@ const EditPost = () => {
 
   const fetchPost = async (postId: string) => {
     try {
-      console.log("Post ID:", postId);
       setLoading(true);
       const postData = await postApi.getPost(postId);
       setPost(postData);

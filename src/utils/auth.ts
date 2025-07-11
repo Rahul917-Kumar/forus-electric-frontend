@@ -1,5 +1,4 @@
 import axios from 'axios';
-import { get } from 'http';
 // Authentication utilities
 export interface User {
   id: string;
@@ -14,7 +13,6 @@ export interface BlogPost {
   tags: string[];
   createdAt: string;
   updatedAt: string;
-  // author: User;
 }
 
 export const getToken = (): string | null => {
@@ -29,8 +27,7 @@ export const removeToken = (): void => {
   localStorage.removeItem('jwt');
 };
 
-// const API_BASE = import.meta.env.VITE_SERVER_API_URL || "http://localhost:8000";
-const API_BASE = "http://localhost:8000";
+const API_BASE = import.meta.env.VITE_SERVER_API_URL || "http://localhost:8000";
 
 export const isAuthenticated = (): boolean => {
   const token = getToken();
@@ -41,13 +38,10 @@ export const isAuthenticated = (): boolean => {
 export const authApi = {
   login: async (email: string, password: string) => {
     try {
-      console.log("API Base URL:", API_BASE)
       const res = await axios.post(`${API_BASE}/api/auth/login`, {
         email,
         password,
       });
-
-      console.log("Login response:", res.data);
 
       const token = res.data.token;
 
@@ -165,7 +159,6 @@ export const authApi = {
           Authorization: `Bearer ${token}`,
         },
       });
-      console.log("Post response:", res.data);
       return res.data;
     } catch (err: any) {
       if (err.response?.data?.message) {
@@ -183,7 +176,6 @@ export const authApi = {
     postData: { title: string; content: string; tags: string[] }
   ): Promise<{ success: boolean }> => {
     try {
-      console.log("postData:", postData);
       const token = getToken();
       if (!token) {
         throw new Error("Not authenticated");

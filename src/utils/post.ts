@@ -1,36 +1,7 @@
 import axios from 'axios';
 import { getToken, setToken, removeToken } from './auth';
-// Authentication utilities
-// export interface User {
-//     id: string;
-//     name: string;
-//     email: string;
-// }
 
-// export interface BlogPost {
-//     _id: string;
-//     title: string;
-//     content: string;
-//     tags: string[];
-//     createdAt: string;
-//     updatedAt: string;
-//     // author: User;
-// }
-
-// export const getToken = (): string | null => {
-//     return localStorage.getItem('jwt');
-// };
-
-// export const setToken = (token: string): void => {
-//     localStorage.setItem('jwt', token);
-// };
-
-// export const removeToken = (): void => {
-//     localStorage.removeItem('jwt');
-// };
-
-// const API_BASE = import.meta.env.VITE_SERVER_API_URL || "http://localhost:8000";
-const API_BASE = "http://localhost:8000";
+const API_BASE = import.meta.env.VITE_SERVER_API_URL || "http://localhost:8000";
 
 // Mock API functions (replace with real API calls)
 export const postApi = {
@@ -103,7 +74,6 @@ export const postApi = {
                     Authorization: `Bearer ${token}`,
                 },
             });
-            console.log("Post response:", res.data);
             return res.data;
         } catch (err: any) {
             if (err.response?.data?.message) {
@@ -121,7 +91,6 @@ export const postApi = {
         postData: { title: string; content: string; tags: string[] }
     ): Promise<{ success: boolean }> => {
         try {
-            console.log("postData:", postData);
             const token = getToken();
             if (!token) {
                 throw new Error("Not authenticated");
