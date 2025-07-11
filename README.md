@@ -1,6 +1,13 @@
 # Blog Dashboard
 > Deployed URL: https://forusblog.netlify.app
 
+#### Local Setup
+```
+git clone <repository_url>
+
+npm run dev
+```
+
 <img width="1848" height="970" alt="image" src="https://github.com/user-attachments/assets/0a42ddef-3c67-4057-9be2-6ef16d4ecb97" />
 
 <img width="1848" height="970" alt="image" src="https://github.com/user-attachments/assets/f5796bf2-16e5-4256-b329-6be8be0d064c" />
